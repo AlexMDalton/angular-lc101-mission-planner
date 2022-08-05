@@ -20,7 +20,18 @@ export class CrewComponent implements OnInit {
   }
 
   add(memberName: string, isFirst: boolean){
-    this.crew.push({name: memberName, firstMission: isFirst});
+    let check = false;
+
+    for(let i=0; i< this.crew.length; i++){
+      if(memberName !== this.crew[i]["name"]){
+        check = true;
+      }
+    }
+    
+    if(check){
+      this.crew.push({name: memberName, firstMission: isFirst});
+    }
+
   }
 
   remove(member:object){
